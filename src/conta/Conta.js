@@ -9,10 +9,8 @@ const Conta = ({ saldo, realizarTransacao }) => {
         const { name, value } = e.target;
         const valoresAtualizados = { ...valores, [name]: value};
 
-        if (valoresAtualizados.transacao === 'saque'){ 
-            if (valores.valor > saldo){
-                alert("Não é possível realizar esse saque. Você está inserindo um saque maior que o saldo da conta! ");
-            }
+        if (valoresAtualizados.transacao === 'saque' && valoresAtualizados.valor > saldo){ 
+            alert("Não é possível realizar esse saque. Você está inserindo um saque maior que o saldo da conta! ");
         }
 
         atualizarValores(valoresAtualizados);

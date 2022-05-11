@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SnapshotTest. O componente não deve ser alterado Deve manter-se o mesmo snapshot 1`] = `
+<div>
+  <div
+    class="transacao-container"
+  >
+    <p>
+      10/08/2022
+    </p>
+    <p>
+      saque
+    </p>
+    <p>
+      R$ 
+      25
+    </p>
+  </div>
+</div>
+`;
