@@ -9,6 +9,12 @@ const Conta = ({ saldo, realizarTransacao }) => {
         const { name, value } = e.target;
         const valoresAtualizados = { ...valores, [name]: value};
 
+        if (valoresAtualizados.transacao === 'saque'){ 
+            if (valores.valor > saldo){
+                alert("Não é possível realizar esse saque. Você está inserindo um saque maior que o saldo da conta! ");
+            }
+        }
+
         atualizarValores(valoresAtualizados);
     }
 
@@ -58,7 +64,6 @@ const Conta = ({ saldo, realizarTransacao }) => {
                 data-testid="valor"
                 onChange={handleChange}
             ></input>
-
             <div>
                 <button type='submit'>
                     Realizar operação
@@ -66,7 +71,7 @@ const Conta = ({ saldo, realizarTransacao }) => {
             </div>
         </form>
     </div>
-};
+}
 
 Conta.defaultProps = {
     saldo: 0,

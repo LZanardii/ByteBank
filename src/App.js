@@ -8,14 +8,17 @@ import './App.css';
 
 export const calcularNovoSaldo = (valores, saldo) => {
   if (valores.transacao === 'deposito') {
-    return saldo + parseInt(valores.valor)
-  } else {
-    return saldo - parseInt(valores.valor);
+    return saldo + parseInt(valores.valor);
+  } else if (valores.transacao === 'saque'){
+    if (valores.valor > saldo){
+      return saldo;
+    }else 
+      return saldo - parseInt(valores.valor);
   }
 }
 
 function App() {
-  const [saldo, atualizarSaldo] = useState(1000);
+  const [saldo, atualizarSaldo] = useState();
   const [transacoes, atualizarTransacoes] = useState([]);
 
   async function carregarTransacoes() {
