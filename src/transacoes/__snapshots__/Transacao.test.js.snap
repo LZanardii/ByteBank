@@ -4,6 +4,7 @@ exports[`SnapshotTest. O componente não deve ser alterado Deve manter-se o mesm
 <div>
   <div
     class="transacao-container"
+    data-testid="transacaoContainer"
   >
     <p>
       10/08/2022

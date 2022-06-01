@@ -6,7 +6,7 @@ import './Transacao.css'
 
 function Transacao({ data, tipo, valor }) {
     return (
-        <div className="transacao-container">
+        <div data-testid="transacaoContainer" className="transacao-container">
             <p>{data}</p>
             <p>{tipo}</p>
             <p>R$ {valor}</p>

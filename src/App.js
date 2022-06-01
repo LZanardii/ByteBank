@@ -18,7 +18,7 @@ export const calcularNovoSaldo = (valores, saldo) => {
 }
 
 function App() {
-  const [saldo, atualizarSaldo] = useState();
+  const [saldo, atualizarSaldo] = useState(0);
   const [transacoes, atualizarTransacoes] = useState([]);
 
   async function carregarTransacoes() {
@@ -32,12 +32,15 @@ function App() {
 
   function realizarTransacao(valores) {  
     const novoSaldo = calcularNovoSaldo(valores, saldo);
-
-    api.atualizaSaldo(novoSaldo).catch((error) => console.error(error))
-    api.atualizaTransacoes(valores).catch((error) => console.error(error))
-    
-    atualizarSaldo(novoSaldo);
-    atualizarTransacoes([valores]);
+    if (novoSaldo === saldo){
+      alert("Deu ruim, saque maior que o saldo... não vamos conseguir finalizar a operção")
+    }else {
+      api.atualizaSaldo(novoSaldo).catch((error) => console.error(error))
+      api.atualizaTransacoes(valores).catch((error) => console.error(error))
+      
+      atualizarSaldo(novoSaldo);
+      atualizarTransacoes([valores]);
+    }
   }
 
   useEffect(() => {
